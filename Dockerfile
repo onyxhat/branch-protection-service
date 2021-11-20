@@ -5,8 +5,7 @@ LABEL MAINTAINER="onyxhat"
 LABEL REPO="https://github.com/onyxhat/branch-protection-service"
 LABEL FORKED_FROM="https://github.com/So-Sahari/branch-protection-service"
 
-ENV TOKEN
-ENV ORG
+ENV TOKEN ORG
 
 RUN apt update && apt upgrade -y
 

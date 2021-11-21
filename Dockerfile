@@ -1,4 +1,4 @@
-FROM golang:1.16
+FROM alpine:latest
 ARG DOCKER_BIN
 
 LABEL MAINTAINER="onyxhat"

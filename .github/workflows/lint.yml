@@ -1,13 +1,14 @@
-name: Lint Go
+name: Lint PR
 
 on:
   pull_request:
 
 env:
   SRC_DIR: src
+  GITHUB_TOKEN: ${{ github.token }}
 
 jobs:
-  lint:
+  lint-go:
     ### Multiple OS linting strategy
     #strategy:
     #  matrix:
@@ -42,3 +43,14 @@ jobs:
 
         # Optional: if set to true then the action don't cache or restore ~/.cache/go-build.
         # skip-build-cache: true
+
+  lint-dockerfile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Docker Lint
+        uses: luke142367/Docker-Lint-Action@v1.1.1
+        with:
+          target: Dockerfile

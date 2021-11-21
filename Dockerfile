@@ -7,8 +7,10 @@ LABEL FORKED_FROM="https://github.com/So-Sahari/branch-protection-service"
 
 ENV TOKEN ORG
 
-COPY ./entrypoint.sh /app/
-COPY ./bin/${DOCKER_BIN} /app/branch-protection-service
+WORKDIR /app
+
+COPY ./entrypoint.sh .
+COPY ./bin/${DOCKER_BIN} ./branch-protection-service
 RUN chmod -R +x /app
 
-CMD [ "/app/entrypoint.sh" ]
+CMD [ "./entrypoint.sh" ]

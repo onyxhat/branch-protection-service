@@ -7,8 +7,6 @@ LABEL FORKED_FROM="https://github.com/So-Sahari/branch-protection-service"
 
 ENV TOKEN ORG
 
-RUN apt update && apt upgrade -y
-
 COPY ./bin/${DOCKER_BIN} /app/branch-protection-service
 RUN chmod -R +x /app
 
